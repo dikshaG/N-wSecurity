@@ -1,0 +1,80 @@
+from Crypto.Util import *
+
+key='1019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf52'
+a='566bbfb1397c60f2ff1b377dfead336471bbad727e76aaff266260feab3d307ab1b222756dbbff25796db6ff02756bb2ff3b7e39aab7373078acba336339a9b737627cd48f376275feb621307bbbac263034f3ff3b643eadff33307bbfab267c7cfeab3a716df9ac727974aeb0216370bcb337306db1ff257977f2ff337e7dfe96727476b0f826306db6b63c7b13b7ab72796afebe727776b1bb72797dbbbe726476feac266270a8ba727676acff26787cfeb1277d7bbbad727f7ffeb030637aabad373076aeab3b7f77adff337e7dd4ac3a7f6baabc27646afeab3a716dfe8f376275feb7336339bfbc236570acba36306db6ad3d657eb6ff26787cfea637716badf1581a5eabb6367f39a8be3c304bb1ac216574f2ff653053abb3722120e7ed58'
+
+a1 = a.decode("hex")
+b1 = key.decode("hex")
+
+def xor_strings(xs, ys):
+     return "".join(chr(ord(x) ^ ord(y)) for x, y in zip(xs, ys))
+
+xored = xor_strings(a1,b1).encode("hex")
+
+final=xored.decode("hex")
+
+
+Frankly, I'd rather not try to compete with Perl in the areas where
+Perl is best -- it's a battle that's impossible to win, and I don't think
+it is a good idea to strive for the number of obscure options and
+shortcuts that Perl has acquired through the years.
+
+Guido van Rossum, 7 Jul 1992
+
+
+a='566bbfb1397c60f2ff1b377dfead336471bbad727e76aaff266260feab3d307ab1b222756dbbff25796db6ff02756bb2ff3b7e39aab7373078acba336339a9b737627cd48f376275feb621307bbbac263034f3ff3b643eadff33307bbfab267c7cfeab3a716df9ac727974aeb0216370bcb337306db1ff257977f2ff337e7dfe96727476b0f826306db6b63c7b13b7ab72796afebe727776b1bb72797dbbbe726476feac266270a8ba727676acff26787cfeb1277d7bbbad727f7ffeb030637aabad373076aeab3b7f77adff337e7dd4ac3a7f6baabc27646afeab3a716dfe8f376275feb7336339bfbc236570acba36306db6ad3d657eb6ff26787cfea637716badf1581a5eabb6367f39a8be3c304bb1ac216574f2ff653053abb3722120e7ed58'
+a1 = a.decode("hex")
+
+def xor_strings(xs, ys):
+     return "".join(chr(ord(x) ^ ord(y)) for x, y in zip(xs, ys))
+	 
+for i in range(10000,12000):
+	xored = xor_strings(a1,i).encode("hex")
+	print xored.decode("hex")
+
+xor_strings(a1,hex(10000000000).encode("hex"))
+key='1019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf521019dedf52'
+a='b3f5c5ceb0a8fec1d9f4e1cbd7c3a6a4f8cdc4a89cb984a0d693f5c5cefcb4fed0c3b0e1d5ebecfcb4e3cdc4bbe1e2c1cbb8adf9cacff4e8b0c5c4b8e1e2c1dea9b3fe84cbfcadf9d7defca2ffcadebda8fecdc4bbe1e4cccffcadf9cacfafcbe4ccdfafe1e2c1cbb8efb0edccfcb5f8c18ab3b1e4cdc5b2a0fc84d9b5bbf5ccc3b2b5b0c5d8bbb4fdc1c4a8e1f9d78aacb3f5d7cfb2b5bc84c3b2b2e4c1cbb8e1ffc2a0aea4f1c0c3b2a6b0d1dafcb5ff84ef9387bc84ddb4aefcc18ab0a8fec1d9fcb5ffd0cbb0adf9cacdfca0e0d4d8b3b9f9c9cba8a4fcdd8aafa8eac1c2b5afe484c8a5b5f5d7a0f4b1ffd7d9b5a3fcdd8abda7e4c1d8fcb3ffd1c4b8a8fec38aa9b1b0d0c5fca0fe84c3b2b5f5d6c4bdadb0c6dfbaa7f5d68aafa8eac183fca0e2c18aaea4f1c084fc8ef2cecfbfb5e3aec3b1b1fcc1c7b9afe4cdc4bbe1f184ccb5adf589c6b5aaf584c3b2b5f5d6ccbda2f584c7bdb8b0c7c2b3aee3c18aa8aeb0cdcdb2aee2c18aafa8eac1c2b5afe484c3bae1f9d0a0bfa0fecac5a8e1f2c18ab5ace0c8cfb1a4fed0cfb8edb0cbd8fca2f1cac4b3b5b0c6cffca8fdd4c6b9acf5cadeb9a5b0c1ccbaa8f3cdcfb2b5fcdd84fc9ac0dddeb4aefeaeceb3a2e5c9cfb2b5f1d0c3b3afcdae'
+
+a1 = a.decode("hex")
+b1 = key.decode("hex")
+
+def xor_strings(xs, ys):
+     return "".join(chr(ord(x) ^ ord(y)) for x, y in zip(xs, ys))
+
+xored = xor_strings(a1,b1).encode("hex")
+
+final=xored.decode("hex")
+
+id:3775
+I've had a DBA tell me that what I wanted to do "could not" be done
+because his silly $5000 tool couldn't model it. Proving him wrong simply
+increased his conviction that what I was doing was immoral and perverse.
+Which, come to think of it, it probably was. Hee hee.
+
+Gordon McMillan, 8 Jun 1998
+
+
+
+import time
+
+a=0x123abc
+b=0x456abc
+
+def bit_match(a,b):
+	c=a^b
+	if c==0: return 160
+	mask=1
+	for i in range(160):
+		if(i&c)==1: return i
+		mask=mask<<1
+		print mask,i,c
+	return 161
+start=time.time()
+print bit_match(a,b)
+print "time=",time.time()-start
+
+y=abc
+y=1010001111000001000010100110011111110101111111000000011110110110100001000100000100010100111000011100111111100001011000110001110011010111000011011010011110001101
+z=1001101100100011010000000010010000111001110110101001100111010011110111100110110110101000001010001101011001011010110110110011010000001101111110101110001100101011
+
